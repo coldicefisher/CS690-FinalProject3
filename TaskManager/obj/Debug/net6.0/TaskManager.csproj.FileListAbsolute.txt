@@ -1,0 +1,15 @@
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/bin/Debug/net6.0/TaskManager
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/bin/Debug/net6.0/TaskManager.deps.json
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/bin/Debug/net6.0/TaskManager.runtimeconfig.json
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/bin/Debug/net6.0/TaskManager.dll
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/bin/Debug/net6.0/TaskManager.pdb
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/obj/Debug/net6.0/TaskManager.csproj.AssemblyReference.cache
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/obj/Debug/net6.0/TaskManager.GeneratedMSBuildEditorConfig.editorconfig
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/obj/Debug/net6.0/TaskManager.AssemblyInfoInputs.cache
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/obj/Debug/net6.0/TaskManager.AssemblyInfo.cs
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/obj/Debug/net6.0/TaskManager.csproj.CoreCompileInputs.cache
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/obj/Debug/net6.0/TaskManager.dll
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/obj/Debug/net6.0/refint/TaskManager.dll
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/obj/Debug/net6.0/TaskManager.pdb
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/obj/Debug/net6.0/TaskManager.genruntimeconfig.cache
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/obj/Debug/net6.0/ref/TaskManager.dll
