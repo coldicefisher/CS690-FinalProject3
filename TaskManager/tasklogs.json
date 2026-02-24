@@ -1,0 +1,306 @@
+[
+  {
+    "Id": 1,
+    "Task": {
+      "Id": 1,
+      "Name": "Deep Work",
+      "Description": "",
+      "CategoryId": 1,
+      "Category": {
+        "Id": 1,
+        "Name": "Work"
+      }
+    },
+    "StartTime": "2025-12-21T09:00:00-08:00",
+    "EndTime": "2025-12-21T11:30:00-08:00",
+    "State": 2,
+    "TotalActiveTime": "02:30:00",
+    "LastResumedAt": null,
+    "Duration": "02:30:00"
+  },
+  {
+    "Id": 2,
+    "Task": {
+      "Id": 2,
+      "Name": "Workout",
+      "Description": "",
+      "CategoryId": 2,
+      "Category": {
+        "Id": 2,
+        "Name": "Personal"
+      }
+    },
+    "StartTime": "2025-12-23T17:00:00-08:00",
+    "EndTime": "2025-12-23T18:00:00-08:00",
+    "State": 2,
+    "TotalActiveTime": "01:00:00",
+    "LastResumedAt": null,
+    "Duration": "01:00:00"
+  },
+  {
+    "Id": 3,
+    "Task": {
+      "Id": 3,
+      "Name": "Coding Feature A",
+      "Description": "",
+      "CategoryId": 1,
+      "Category": {
+        "Id": 1,
+        "Name": "Work"
+      }
+    },
+    "StartTime": "2025-12-28T08:30:00-08:00",
+    "EndTime": "2025-12-28T12:00:00-08:00",
+    "State": 2,
+    "TotalActiveTime": "03:30:00",
+    "LastResumedAt": null,
+    "Duration": "03:30:00"
+  },
+  {
+    "Id": 4,
+    "Task": {
+      "Id": 4,
+      "Name": "Reading",
+      "Description": "",
+      "CategoryId": 3,
+      "Category": {
+        "Id": 3,
+        "Name": "Study"
+      }
+    },
+    "StartTime": "2025-12-30T20:00:00-08:00",
+    "EndTime": "2025-12-30T21:30:00-08:00",
+    "State": 2,
+    "TotalActiveTime": "01:30:00",
+    "LastResumedAt": null,
+    "Duration": "01:30:00"
+  },
+  {
+    "Id": 5,
+    "Task": {
+      "Id": 5,
+      "Name": "Design Review",
+      "Description": "",
+      "CategoryId": 1,
+      "Category": {
+        "Id": 1,
+        "Name": "Work"
+      }
+    },
+    "StartTime": "2026-01-04T10:00:00-08:00",
+    "EndTime": "2026-01-04T12:15:00-08:00",
+    "State": 2,
+    "TotalActiveTime": "02:15:00",
+    "LastResumedAt": null,
+    "Duration": "02:15:00"
+  },
+  {
+    "Id": 6,
+    "Task": {
+      "Id": 6,
+      "Name": "Meal Prep",
+      "Description": "",
+      "CategoryId": 2,
+      "Category": {
+        "Id": 2,
+        "Name": "Personal"
+      }
+    },
+    "StartTime": "2026-01-11T14:00:00-08:00",
+    "EndTime": "2026-01-11T15:00:00-08:00",
+    "State": 2,
+    "TotalActiveTime": "01:00:00",
+    "LastResumedAt": null,
+    "Duration": "01:00:00"
+  },
+  {
+    "Id": 7,
+    "Task": {
+      "Id": 7,
+      "Name": "Architecture Planning",
+      "Description": "",
+      "CategoryId": 1,
+      "Category": {
+        "Id": 1,
+        "Name": "Work"
+      }
+    },
+    "StartTime": "2026-01-18T09:00:00-08:00",
+    "EndTime": "2026-01-18T13:00:00-08:00",
+    "State": 2,
+    "TotalActiveTime": "04:00:00",
+    "LastResumedAt": null,
+    "Duration": "04:00:00"
+  },
+  {
+    "Id": 8,
+    "Task": {
+      "Id": 8,
+      "Name": "Long Run",
+      "Description": "",
+      "CategoryId": 2,
+      "Category": {
+        "Id": 2,
+        "Name": "Personal"
+      }
+    },
+    "StartTime": "2026-01-25T07:00:00-08:00",
+    "EndTime": "2026-01-25T08:30:00-08:00",
+    "State": 2,
+    "TotalActiveTime": "01:30:00",
+    "LastResumedAt": null,
+    "Duration": "01:30:00"
+  },
+  {
+    "Id": 9,
+    "Task": {
+      "Id": 9,
+      "Name": "Study Algorithms",
+      "Description": "",
+      "CategoryId": 3,
+      "Category": {
+        "Id": 3,
+        "Name": "Study"
+      }
+    },
+    "StartTime": "2026-02-01T19:00:00-08:00",
+    "EndTime": "2026-02-01T21:00:00-08:00",
+    "State": 2,
+    "TotalActiveTime": "02:00:00",
+    "LastResumedAt": null,
+    "Duration": "02:00:00"
+  },
+  {
+    "Id": 10,
+    "Task": {
+      "Id": 10,
+      "Name": "Client Meeting",
+      "Description": "",
+      "CategoryId": 1,
+      "Category": {
+        "Id": 1,
+        "Name": "Work"
+      }
+    },
+    "StartTime": "2026-02-08T11:00:00-08:00",
+    "EndTime": "2026-02-08T12:30:00-08:00",
+    "State": 2,
+    "TotalActiveTime": "01:30:00",
+    "LastResumedAt": null,
+    "Duration": "01:30:00"
+  },
+  {
+    "Id": 11,
+    "Task": {
+      "Id": 11,
+      "Name": "Side Project",
+      "Description": "",
+      "CategoryId": 1,
+      "Category": {
+        "Id": 1,
+        "Name": "Work"
+      }
+    },
+    "StartTime": "2026-02-15T13:00:00-08:00",
+    "EndTime": "2026-02-15T16:00:00-08:00",
+    "State": 2,
+    "TotalActiveTime": "03:00:00",
+    "LastResumedAt": null,
+    "Duration": "03:00:00"
+  },
+  {
+    "Id": 12,
+    "Task": {
+      "Id": 12,
+      "Name": "Weekly Planning",
+      "Description": "",
+      "CategoryId": 3,
+      "Category": {
+        "Id": 3,
+        "Name": "Study"
+      }
+    },
+    "StartTime": "2026-02-22T08:00:00-08:00",
+    "EndTime": "2026-02-22T09:30:00-08:00",
+    "State": 2,
+    "TotalActiveTime": "01:30:00",
+    "LastResumedAt": null,
+    "Duration": "01:30:00"
+  },
+  {
+    "Id": 13,
+    "Task": {
+      "Id": 0,
+      "Name": "texting hawt wife",
+      "Description": "",
+      "CategoryId": 5,
+      "Category": {
+        "Id": 5,
+        "Name": "Getting my game on"
+      }
+    },
+    "StartTime": "2026-02-23T16:30:32.9566183-08:00",
+    "EndTime": "2026-02-23T16:30:55.3642035-08:00",
+    "State": 2,
+    "TotalActiveTime": "00:00:13.6790588",
+    "LastResumedAt": null,
+    "Duration": "00:00:13.6790588"
+  },
+  {
+    "Id": 14,
+    "Task": {
+      "Id": 0,
+      "Name": "making hawt wife laugh",
+      "Description": "",
+      "CategoryId": 5,
+      "Category": {
+        "Id": 5,
+        "Name": "Getting my game on"
+      }
+    },
+    "StartTime": "2026-02-23T16:32:57.3170393-08:00",
+    "EndTime": "2026-02-23T16:33:01.1645925-08:00",
+    "State": 2,
+    "TotalActiveTime": "00:00:03.8475262",
+    "LastResumedAt": "2026-02-23T16:32:57.3170448-08:00",
+    "Duration": "00:00:03.8475262"
+  },
+  {
+    "Id": 15,
+    "Task": {
+      "Id": 0,
+      "Name": "checking out hawt wife",
+      "Description": "",
+      "CategoryId": 5,
+      "Category": {
+        "Id": 5,
+        "Name": "Getting my game on"
+      }
+    },
+    "StartTime": "2026-02-23T16:34:06.6743858-08:00",
+    "EndTime": "2026-02-23T16:34:12.1540954-08:00",
+    "State": 2,
+    "TotalActiveTime": "00:00:05.4796985",
+    "LastResumedAt": "2026-02-23T16:34:06.6743903-08:00",
+    "Duration": "00:00:05.4796985"
+  },
+  {
+    "Id": 16,
+    "Task": {
+      "Id": 0,
+      "Name": "touching the booty",
+      "Description": "",
+      "CategoryId": 5,
+      "Category": {
+        "Id": 5,
+        "Name": "Getting my game on"
+      }
+    },
+    "StartTime": "2026-02-23T19:46:11.5389684-08:00",
+    "EndTime": "2026-02-23T19:46:17.1019051-08:00",
+    "State": 2,
+    "TotalActiveTime": "00:00:03.9781310",
+    "LastResumedAt": null,
+    "Duration": "00:00:03.9781310"
+  }
+]

@@ -1,0 +1,150 @@
+using System.Linq;
+
+namespace TaskManager;
+
+public class TaskService
+{
+    private readonly StorageService _storage;
+    private List<TaskLog> _logs;
+
+    public TaskLog? CurrentTask { get; private set; }
+
+    private List<Category> _categories;
+
+    public IReadOnlyList<Category> Categories => _categories;
+
+    public TaskService()
+    {
+        _storage = new StorageService();
+        _logs = _storage.Load();
+        _categories = _storage.LoadCategories();
+
+        // Seed default categories if none exist
+        if (_categories.Count == 0)
+        {
+            _categories.Add(new Category { Id = 1, Name = "Work" });
+            _categories.Add(new Category { Id = 2, Name = "Personal" });
+            _categories.Add(new Category { Id = 3, Name = "Study" });
+
+            _storage.SaveCategories(_categories);
+        }
+    }
+
+    public bool StartTask(string name, int categoryId)
+    {
+        if (CurrentTask != null)
+            return false;
+
+        var category = _categories.FirstOrDefault(c => c.Id == categoryId);
+        if (category == null)
+            return false;
+
+        CurrentTask = new TaskLog
+        {
+            Id = _logs.Any() ? _logs.Max(l => l.Id) + 1 : 1,
+            Task = new UserTask
+            {
+                Name = name,
+                CategoryId = category.Id,
+                Category = category
+            },
+            StartTime = DateTime.Now,
+            LastResumedAt = DateTime.Now,
+            State = TaskState.Running
+        };
+
+        return true;
+    }
+
+    public void PauseTask()
+    {
+        if (CurrentTask == null || CurrentTask.State != TaskState.Running)
+            return;
+
+        var elapsed = DateTime.Now - CurrentTask.LastResumedAt!.Value;
+        CurrentTask.TotalActiveTime += elapsed;
+
+        CurrentTask.LastResumedAt = null;
+        CurrentTask.State = TaskState.Paused;
+    }
+
+    public void ResumeTask()
+    {
+        if (CurrentTask == null || CurrentTask.State != TaskState.Paused)
+            return;
+
+        CurrentTask.LastResumedAt = DateTime.Now;
+        CurrentTask.State = TaskState.Running;
+    }
+
+    public void CompleteTask()
+    {
+        if (CurrentTask == null)
+            return;
+
+        if (CurrentTask.State == TaskState.Running)
+        {
+            var elapsed = DateTime.Now - CurrentTask.LastResumedAt!.Value;
+            CurrentTask.TotalActiveTime += elapsed;
+        }
+
+        CurrentTask.EndTime = DateTime.Now;
+        CurrentTask.State = TaskState.Completed;
+
+        _logs.Add(CurrentTask);
+        _storage.Save(_logs);
+
+        CurrentTask = null;
+    }
+
+    public void DiscardTask()
+    {
+        CurrentTask = null;
+    }
+
+    public List<TaskLog> GetTodayTasks()
+    {
+        return _logs
+            .Where(t => t.StartTime.Date == DateTime.Today)
+            .ToList();
+    }
+
+    public Category AddCategory(string name)
+    {
+        var newCategory = new Category
+        {
+            Id = _categories.Any() ? _categories.Max(c => c.Id) + 1 : 1,
+            Name = name
+        };
+
+        _categories.Add(newCategory);
+        _storage.SaveCategories(_categories);
+
+        return newCategory;
+    }
+
+    public List<IGrouping<(DateTime Start, DateTime End), TaskLog>> GetWeeklyGroups()
+    {
+        return _logs
+            .GroupBy(log =>
+            {
+                var startOfWeek = log.StartTime.Date.AddDays(-(int)log.StartTime.DayOfWeek);
+                var endOfWeek = startOfWeek.AddDays(6);
+
+                return (Start: startOfWeek, End: endOfWeek); // 👈 NAME THEM
+            })
+            .OrderByDescending(g => g.Key.Start)
+            .ToList();
+    }
+
+    public void DeleteTaskLog(int id)
+    {
+        var log = _logs.FirstOrDefault(l => l.Id == id);
+        if (log == null)
+            return;
+
+        _logs.Remove(log);
+        _storage.Save(_logs);
+    }
+    
+}

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rIfNzn/4szXiULt+x+8wyWWyeD7zZC7/VJj1QhrIAE9wTZL/Z2wG1B+kmsR/+vFlpYd8a/biykGxDxKdaQTm6w==",
+  "dgSpecHash": "2XaU6XvfW/8=",
   "success": true,
   "projectFilePath": "/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/TaskManager.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/jamey/.nuget/packages/spectre.console/0.54.0/spectre.console.0.54.0.nupkg.sha512"
+  ],
   "logs": []
 }

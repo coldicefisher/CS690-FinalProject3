@@ -1,0 +1,22 @@
+[
+  {
+    "Id": 1,
+    "Name": "Work"
+  },
+  {
+    "Id": 2,
+    "Name": "Personal"
+  },
+  {
+    "Id": 3,
+    "Name": "Study"
+  },
+  {
+    "Id": 4,
+    "Name": "College"
+  },
+  {
+    "Id": 5,
+    "Name": "Getting my game on"
+  }
+]
