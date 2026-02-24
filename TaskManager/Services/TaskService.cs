@@ -123,15 +123,16 @@ public class TaskService
         return newCategory;
     }
 
-    public List<IGrouping<(DateTime Start, DateTime End), TaskLog>> GetWeeklyGroups()
+
+    public List<IGrouping<WeekWindow, TaskLog>> GetWeeklyGroups()
     {
         return _logs
             .GroupBy(log =>
             {
-                var startOfWeek = log.StartTime.Date.AddDays(-(int)log.StartTime.DayOfWeek);
-                var endOfWeek = startOfWeek.AddDays(6);
+                var diff = (7 + (log.StartTime.DayOfWeek - DayOfWeek.Monday)) % 7;
+                var weekStart = log.StartTime.Date.AddDays(-diff);
 
-                return (Start: startOfWeek, End: endOfWeek); // 👈 NAME THEM
+                return new WeekWindow(weekStart);
             })
             .OrderByDescending(g => g.Key.Start)
             .ToList();
