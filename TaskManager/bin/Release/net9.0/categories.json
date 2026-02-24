@@ -14,5 +14,13 @@
   {
     "Id": 4,
     "Name": "College"
+  },
+  {
+    "Id": 5,
+    "Name": "Final Project"
+  },
+  {
+    "Id": 6,
+    "Name": "goofing off"
   }
 ]
