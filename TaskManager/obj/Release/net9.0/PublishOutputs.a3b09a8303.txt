@@ -1,0 +1,6 @@
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/bin/Release/net9.0/publish/TaskManager
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/bin/Release/net9.0/publish/TaskManager.dll
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/bin/Release/net9.0/publish/TaskManager.deps.json
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/bin/Release/net9.0/publish/TaskManager.runtimeconfig.json
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/bin/Release/net9.0/publish/TaskManager.pdb
+/home/jamey/Documents/Ball State/Software Engineering/final_project/CS690-FinalProject2/TaskManager/bin/Release/net9.0/publish/Spectre.Console.dll
