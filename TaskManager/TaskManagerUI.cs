@@ -159,8 +159,7 @@ public class TaskManagerUI
 
     private void ShowWeeklySummary()
     {
-        var weeklyGroups = _service.GetWeeklyGroups();
-        var summary = new WeeklySummary(weeklyGroups);
+        var summary = new WeeklySummary(_service);
 
         summary.DisplaySelection(_service);
         Pause();

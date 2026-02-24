@@ -4,16 +4,18 @@ using Spectre.Console;
 
 public class WeeklySummary
 {
-    private readonly List<IGrouping<WeekWindow, TaskLog>> _weeklyGroups;
+    
 
-    public WeeklySummary(List<IGrouping<WeekWindow, TaskLog>> weeklyGroups)
+    private readonly TaskService _service;
+
+    public WeeklySummary(TaskService service)
     {
-        _weeklyGroups = weeklyGroups;
+        _service = service;
     }
 
     public bool HasData()
     {
-        return _weeklyGroups.Any();
+        return _service.GetWeeklyGroups().Any();
     }
 
     public void DisplaySelection(TaskService service)
@@ -32,7 +34,7 @@ public class WeeklySummary
 
             prompt.AddChoice("Cancel");
 
-            foreach (var group in _weeklyGroups)
+            foreach (var group in _service.GetWeeklyGroups())
             {
                 var label = $"{group.Key.Start:yyyy-MM-dd} to {group.Key.End:yyyy-MM-dd}";
                 prompt.AddChoice(label);
@@ -43,10 +45,10 @@ public class WeeklySummary
             if (selected == "Cancel")
                 return;
 
-            var selectedIndex = _weeklyGroups.FindIndex(g =>
+            var selectedIndex = _service.GetWeeklyGroups().FindIndex(g =>
                 $"{g.Key.Start:yyyy-MM-dd} to {g.Key.End:yyyy-MM-dd}" == selected);
 
-            var selectedWindow = _weeklyGroups
+            var selectedWindow = _service.GetWeeklyGroups()
                 .Skip(selectedIndex)
                 .Take(4)
                 .ToList();
@@ -133,7 +135,7 @@ public class WeeklySummary
 
     private void HandleDeleteFlow(TaskService service)
     {
-        var allLogs = _weeklyGroups
+        var allLogs = _service.GetWeeklyGroups()
             .SelectMany(g => g)
             .OrderByDescending(l => l.StartTime)
             .ToList();
