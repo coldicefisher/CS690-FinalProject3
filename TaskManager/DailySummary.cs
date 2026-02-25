@@ -8,18 +8,18 @@ public class DailySummary
 
     public DateTime Date { get; }
 
-    public DailySummary(DateTime date, IEnumerable<TaskLog> logs)
-    {
+    public DailySummary(DateTime date, IEnumerable<TaskLog> logs) {
         Date = date.Date;
         _logs = logs
             .Where(l => l.StartTime.Date == Date)
             .ToList();
     }
 
-    public bool HasData()
-    {
+    public bool HasData() {
         return _logs.Any();
     }
+
+    
 
     public IEnumerable<(string TaskName, TimeSpan Total)> GetTaskTotals() {
         return _logs
