@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Linq; // For Any() and FirstOrDefault()
 
 namespace TaskManager;
 
@@ -13,9 +13,18 @@ public class TaskService
 
     public IReadOnlyList<Category> Categories => _categories;
 
-    public TaskService()
+    // We need to use dependency injection for the storage service to allow for testing with a fake storage service
+    //  that doesn't touch the file system. In production, we'll use the real storage service.
+
+    // We use constructor chaining to provide a default constructor that uses the real storage service, 
+    // while still allowing for a custom storage service to be injected for testing purposes.
+    public TaskService() : this(new StorageService())
     {
-        _storage = new StorageService();
+    }
+
+    public TaskService(StorageService storage)
+    {
+        _storage = storage;
         _logs = _storage.Load();
         _categories = _storage.LoadCategories();
 
@@ -124,7 +133,8 @@ public class TaskService
     }
 
 
-    public List<IGrouping<WeekWindow, TaskLog>> GetWeeklyGroups()
+    // We leverage Lynq's grouping capabilities to chain together the grouping and sorting logic.
+    public List<IGrouping<WeekWindow, TaskLog>> GetWeeklyGroups() 
     {
         return _logs
             .GroupBy(log =>

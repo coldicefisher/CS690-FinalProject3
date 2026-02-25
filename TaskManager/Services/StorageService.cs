@@ -10,7 +10,7 @@ public class StorageService
 
 
 
-    public List<TaskLog> Load()
+    public virtual List<TaskLog> Load()
     {
         if (!File.Exists(_filePath))
             return new List<TaskLog>();
@@ -19,7 +19,7 @@ public class StorageService
         return JsonSerializer.Deserialize<List<TaskLog>>(json) ?? new();
     }
 
-    public void Save(List<TaskLog> logs)
+    public virtual void Save(List<TaskLog> logs)
     {
         var json = JsonSerializer.Serialize(logs, new JsonSerializerOptions
         {
@@ -29,7 +29,7 @@ public class StorageService
         File.WriteAllText(_filePath, json);
     }
 
-    public List<Category> LoadCategories()
+    public virtual List<Category> LoadCategories()
     {
         if (!File.Exists(_categoryPath))
             return new List<Category>();
@@ -38,7 +38,7 @@ public class StorageService
         return JsonSerializer.Deserialize<List<Category>>(json) ?? new();
     }
 
-    public void SaveCategories(List<Category> categories)
+    public virtual void SaveCategories(List<Category> categories)
     {
         var json = JsonSerializer.Serialize(categories, new JsonSerializerOptions
         {
