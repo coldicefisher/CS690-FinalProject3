@@ -285,25 +285,6 @@
     "Duration": "00:00:04.1762129"
   },
   {
-    "Id": 20,
-    "Task": {
-      "Id": 0,
-      "Name": "Architecture Planning",
-      "Description": "",
-      "CategoryId": 1,
-      "Category": {
-        "Id": 1,
-        "Name": "Work"
-      }
-    },
-    "StartTime": "2026-02-24T19:00:51.8070209-08:00",
-    "EndTime": "2026-02-24T19:00:54.789688-08:00",
-    "State": 2,
-    "TotalActiveTime": "00:00:02.9826356",
-    "LastResumedAt": "2026-02-24T19:00:51.8070282-08:00",
-    "Duration": "00:00:02.9826356"
-  },
-  {
     "Id": 21,
     "Task": {
       "Id": 0,
@@ -340,5 +321,24 @@
     "TotalActiveTime": "00:00:03.5018799",
     "LastResumedAt": "2026-02-24T19:32:29.7119846-08:00",
     "Duration": "00:00:03.5018799"
+  },
+  {
+    "Id": 25,
+    "Task": {
+      "Id": 0,
+      "Name": "Deep Work",
+      "Description": "",
+      "CategoryId": 1,
+      "Category": {
+        "Id": 1,
+        "Name": "Work"
+      }
+    },
+    "StartTime": "2026-02-24T20:39:30.535912-08:00",
+    "EndTime": "2026-02-24T20:39:31.8566934-08:00",
+    "State": 2,
+    "TotalActiveTime": "00:00:01.3207467",
+    "LastResumedAt": "2026-02-24T20:39:30.5359249-08:00",
+    "Duration": "00:00:01.3207467"
   }
 ]
