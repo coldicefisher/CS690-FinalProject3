@@ -5,13 +5,19 @@ namespace TaskManager;
 
 public class StorageService
 {
-    private readonly string _filePath = "tasklogs.json";
-    private readonly string _categoryPath = "categories.json";
+    private readonly string _filePath;
+    private readonly string _categoryPath;
+
+    public StorageService(
+        string? filePath = null,
+        string? categoryPath = null
+    ) {
+        _filePath = filePath ?? "tasklogs.json";
+        _categoryPath = categoryPath ?? "categories.json";
+    }
 
 
-
-    public virtual List<TaskLog> Load()
-    {
+    public virtual List<TaskLog> Load() {
         if (!File.Exists(_filePath))
             return new List<TaskLog>();
 
@@ -19,8 +25,7 @@ public class StorageService
         return JsonSerializer.Deserialize<List<TaskLog>>(json) ?? new();
     }
 
-    public virtual void Save(List<TaskLog> logs)
-    {
+    public virtual void Save(List<TaskLog> logs) {
         var json = JsonSerializer.Serialize(logs, new JsonSerializerOptions
         {
             WriteIndented = true
@@ -29,19 +34,15 @@ public class StorageService
         File.WriteAllText(_filePath, json);
     }
 
-    public virtual List<Category> LoadCategories()
-    {
-        if (!File.Exists(_categoryPath))
-            return new List<Category>();
+    public virtual List<Category> LoadCategories() {
+        if (!File.Exists(_categoryPath)) return new List<Category>();
 
         var json = File.ReadAllText(_categoryPath);
         return JsonSerializer.Deserialize<List<Category>>(json) ?? new();
     }
 
-    public virtual void SaveCategories(List<Category> categories)
-    {
-        var json = JsonSerializer.Serialize(categories, new JsonSerializerOptions
-        {
+    public virtual void SaveCategories(List<Category> categories) {
+        var json = JsonSerializer.Serialize(categories, new JsonSerializerOptions {
             WriteIndented = true
         });
 

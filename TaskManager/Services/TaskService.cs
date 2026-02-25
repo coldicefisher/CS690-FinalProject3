@@ -2,8 +2,7 @@ using System.Linq; // For Any() and FirstOrDefault()
 
 namespace TaskManager;
 
-public class TaskService
-{
+public class TaskService {
     private readonly StorageService _storage;
     private List<TaskLog> _logs;
 
@@ -18,19 +17,15 @@ public class TaskService
 
     // We use constructor chaining to provide a default constructor that uses the real storage service, 
     // while still allowing for a custom storage service to be injected for testing purposes.
-    public TaskService() : this(new StorageService())
-    {
-    }
+    public TaskService() : this(new StorageService()) { }
 
-    public TaskService(StorageService storage)
-    {
+    public TaskService(StorageService storage) {
         _storage = storage;
         _logs = _storage.Load();
         _categories = _storage.LoadCategories();
 
         // Seed default categories if none exist
-        if (_categories.Count == 0)
-        {
+        if (_categories.Count == 0) {
             _categories.Add(new Category { Id = 1, Name = "Work" });
             _categories.Add(new Category { Id = 2, Name = "Personal" });
             _categories.Add(new Category { Id = 3, Name = "Study" });
@@ -39,17 +34,13 @@ public class TaskService
         }
     }
 
-    public bool StartTask(string name, int categoryId)
-    {
-        if (CurrentTask != null)
-            return false;
+    public bool StartTask(string name, int categoryId) {
+        if (CurrentTask != null) return false;
 
         var category = _categories.FirstOrDefault(c => c.Id == categoryId);
-        if (category == null)
-            return false;
+        if (category == null) return false;
 
-        CurrentTask = new TaskLog
-        {
+        CurrentTask = new TaskLog {
             Id = _logs.Any() ? _logs.Max(l => l.Id) + 1 : 1,
             Task = new UserTask
             {
@@ -65,10 +56,8 @@ public class TaskService
         return true;
     }
 
-    public void PauseTask()
-    {
-        if (CurrentTask == null || CurrentTask.State != TaskState.Running)
-            return;
+    public void PauseTask() {
+        if (CurrentTask == null || CurrentTask.State != TaskState.Running) return;
 
         var elapsed = DateTime.Now - CurrentTask.LastResumedAt!.Value;
         CurrentTask.TotalActiveTime += elapsed;
@@ -77,22 +66,17 @@ public class TaskService
         CurrentTask.State = TaskState.Paused;
     }
 
-    public void ResumeTask()
-    {
-        if (CurrentTask == null || CurrentTask.State != TaskState.Paused)
-            return;
+    public void ResumeTask() {
+        if (CurrentTask == null || CurrentTask.State != TaskState.Paused) return;
 
         CurrentTask.LastResumedAt = DateTime.Now;
         CurrentTask.State = TaskState.Running;
     }
 
-    public void CompleteTask()
-    {
-        if (CurrentTask == null)
-            return;
+    public void CompleteTask() {
+        if (CurrentTask == null) return;
 
-        if (CurrentTask.State == TaskState.Running)
-        {
+        if (CurrentTask.State == TaskState.Running) {
             var elapsed = DateTime.Now - CurrentTask.LastResumedAt!.Value;
             CurrentTask.TotalActiveTime += elapsed;
         }
@@ -106,22 +90,18 @@ public class TaskService
         CurrentTask = null;
     }
 
-    public void DiscardTask()
-    {
+    public void DiscardTask() {
         CurrentTask = null;
     }
 
-    public List<TaskLog> GetTodayTasks()
-    {
+    public List<TaskLog> GetTodayTasks() {
         return _logs
             .Where(t => t.StartTime.Date == DateTime.Today)
             .ToList();
     }
 
-    public Category AddCategory(string name)
-    {
-        var newCategory = new Category
-        {
+    public Category AddCategory(string name) {
+        var newCategory = new Category {
             Id = _categories.Any() ? _categories.Max(c => c.Id) + 1 : 1,
             Name = name
         };
@@ -134,8 +114,7 @@ public class TaskService
 
 
     // We leverage Lynq's grouping capabilities to chain together the grouping and sorting logic.
-    public List<IGrouping<WeekWindow, TaskLog>> GetWeeklyGroups() 
-    {
+    public List<IGrouping<WeekWindow, TaskLog>> GetWeeklyGroups()  {
         return _logs
             .GroupBy(log =>
             {
@@ -148,8 +127,7 @@ public class TaskService
             .ToList();
     }
 
-    public void DeleteTaskLog(int id)
-    {
+    public void DeleteTaskLog(int id) {
         var log = _logs.FirstOrDefault(l => l.Id == id);
         if (log == null)
             return;
