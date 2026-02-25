@@ -33,6 +33,7 @@ public class DailySummaryTests
         Assert.Equal(new DateTime(2024, 3, 5), summary.Date);
     }
 
+
     [Fact]
     public void HasData_ReturnsFalse_WhenNoLogsMatchDate() {
         var logs = new List<TaskLog>
@@ -46,6 +47,7 @@ public class DailySummaryTests
     }
 
 
+
     [Fact]
     public void HasData_ReturnsTrue_WhenLogsMatchDate() {
         var logs = new List<TaskLog>
@@ -57,6 +59,7 @@ public class DailySummaryTests
 
         Assert.True(summary.HasData());
     }
+
 
     [Fact]
     public void FiltersLogsByDate() {

@@ -100,6 +100,11 @@ public class TaskService {
             .ToList();
     }
 
+
+    public IReadOnlyList<TaskLog> GetAllLogs() {
+        return _logs.AsReadOnly();
+    }
+
     public Category AddCategory(string name) {
         var newCategory = new Category {
             Id = _categories.Any() ? _categories.Max(c => c.Id) + 1 : 1,

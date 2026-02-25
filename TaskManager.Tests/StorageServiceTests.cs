@@ -7,6 +7,7 @@ using System.Linq;
 
 
 public class StorageServiceTests {
+
     private string CreateTempFile() {
         return Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
     }

@@ -62,14 +62,38 @@ public class TaskManagerUI
 
     private void StartTask()
     {
+        var existingTasks = _service
+            .GetAllLogs()
+            .Select(l => l.Task.Name)
+            .Distinct()
+            .OrderBy(n => n)
+            .ToList();
+
         Console.WriteLine("");
         Console.WriteLine(new string('-', 20));
-        Console.Write("Enter task name: ");
-        var name = Console.ReadLine();
+        var prompt = new SelectionPrompt<string>()
+            .Title("[bold yellow]Create/Select a task[/]")
+            .PageSize(10);
 
-        if (string.IsNullOrWhiteSpace(name))
-            return;
+        prompt.AddChoice("[green]➕ Create New Task[/]");
 
+        foreach (var task in existingTasks)
+            prompt.AddChoice(task);
+
+        var selected = AnsiConsole.Prompt(prompt);
+
+        string name;
+
+        if (selected.Contains("Create New")) {
+            Console.Write("\nEnter task name: ");
+            name = Console.ReadLine()!;
+        }
+        else
+        {
+            name = selected;
+        }
+
+        
         Console.WriteLine("");
         Console.WriteLine("Select Category:");
 
@@ -78,6 +102,7 @@ public class TaskManagerUI
 
         Console.WriteLine("");
         Console.WriteLine(new string('-', 20));
+        Console.WriteLine("Please enter a number corresponding to the category, or type a new category name to create it.");    
         Console.Write("Category: ");
 
         var input = Console.ReadLine();

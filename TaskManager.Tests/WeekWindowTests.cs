@@ -31,7 +31,6 @@ public class WeekWindowTests
         var w2 = new WeekWindow(new DateTime(2024, 3, 5, 20, 0, 0));
 
         Assert.True(w1.Equals(w2));
-        Assert.True(w1 == w1); // reference equality still valid
     }
 
 

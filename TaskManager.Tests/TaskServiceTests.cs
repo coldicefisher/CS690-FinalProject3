@@ -53,6 +53,8 @@ public class TaskServiceTests
         Assert.True(service.CurrentTask.TotalActiveTime.TotalMilliseconds > 0);
     }
 
+
+
     [Fact]
     public void ResumeTask_ChangesStateBackToRunning()
     {
@@ -65,6 +67,8 @@ public class TaskServiceTests
         Assert.Equal(TaskState.Running, service.CurrentTask!.State);
         Assert.NotNull(service.CurrentTask.LastResumedAt);
     }
+
+
 
     [Fact]
     public void CompleteTask_AddsToLogs_AndClearsCurrentTask()
@@ -83,6 +87,7 @@ public class TaskServiceTests
         Assert.Equal(TaskState.Completed, todayTasks.First().State);
     }
 
+
     [Fact]
     public void DiscardTask_ClearsCurrentTask()
     {
@@ -93,6 +98,7 @@ public class TaskServiceTests
 
         Assert.Null(service.CurrentTask);
     }
+
 
     [Fact]
     public void DeleteTaskLog_RemovesLog()
