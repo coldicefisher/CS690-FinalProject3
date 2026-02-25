@@ -21,13 +21,24 @@ public class DailySummary
         return _logs.Any();
     }
 
-    public void Display()
-    {
+    public IEnumerable<(string TaskName, TimeSpan Total)> GetTaskTotals() {
+        return _logs
+            .GroupBy(l => l.Task.Name)
+            .Select(g => (
+                TaskName: g.Key,
+                Total: TimeSpan.FromTicks(g.Sum(l => l.Duration.Ticks))
+            ))
+            .OrderByDescending(x => x.Total);
+    }
+
+
+
+    public void Display() {
         AnsiConsole.Clear();
 
         AnsiConsole.Write(new Rule($"[bold yellow]Daily Summary - {Date:yyyy-MM-dd}[/]"));
 
-        if (!_logs.Any())
+        if (!HasData())
         {
             AnsiConsole.MarkupLine("[yellow]No tasks recorded today.[/]");
             return;
@@ -37,16 +48,9 @@ public class DailySummary
         table.AddColumn("Task Name");
         table.AddColumn("Time Spent");
 
-        var grouped = _logs
-            .GroupBy(l => l.Task.Name)
-            .Select(g => new
-            {
-                TaskName = g.Key,
-                Total = TimeSpan.FromTicks(g.Sum(l => l.Duration.Ticks))
-            })
-            .OrderByDescending(x => x.Total);
+        var totals = GetTaskTotals(); 
 
-        foreach (var item in grouped)
+        foreach (var item in totals)
         {
             table.AddRow(
                 item.TaskName,
@@ -56,4 +60,5 @@ public class DailySummary
 
         AnsiConsole.Write(table);
     }
+
 }
