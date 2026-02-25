@@ -11,6 +11,7 @@ public class StorageServiceTests {
         return Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
     }
 
+
     [Fact]
     public void Load_ReturnsEmpty_WhenFileDoesNotExist() {
         var path = CreateTempFile();
@@ -69,4 +70,6 @@ public class StorageServiceTests {
 
         File.Delete(catPath);
     }
+
+
 }
